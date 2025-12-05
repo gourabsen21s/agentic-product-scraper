@@ -58,6 +58,7 @@ logs/
 *.webm
 
 # Environment variables
+.env
 .env.local
 .env.production
 
