@@ -1,5 +1,0 @@
-playwright
-langchain-openai
-pydantic
-autopep8
-python-dotenv
