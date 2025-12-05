@@ -1,9 +1,16 @@
-playwright==1.41.1
-prometheus_client==0.16.0
-ultralytics==8.0.135   # YOLOv8 (version may vary; pick a stable release)
+playwright
+prometheus_client
+ultralytics
 opencv-python-headless
 numpy
 pillow
-paddlepaddle-cpu==2.5.2 # OR paddlepaddle-gpu equivalent for CUDA
-paddleocr==2.5.1
+paddlepaddle
+paddleocr
 tqdm
+pytest
+pydantic
+langchain
+langchain-community
+langchain-core
+langchain-openai
+python-dotenv
