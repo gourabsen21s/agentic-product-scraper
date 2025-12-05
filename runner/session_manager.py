@@ -54,8 +54,8 @@ class SessionManager:
 
         # configure record_video arg if requested
         if video:
-            # Playwright expects record_video={"dir": session_dir}
-            context_kwargs = dict(context_kwargs, record_video={"dir": session_dir})
+            # Playwright expects record_video_dir
+            context_kwargs["record_video_dir"] = session_dir
         # set default viewport if not provided
         if "viewport" not in context_kwargs:
             context_kwargs["viewport"] = DEFAULT_VIEWPORT

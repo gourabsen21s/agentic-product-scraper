@@ -3,7 +3,7 @@ import json
 import time
 from typing import List, Dict, Any, Optional
 from pydantic import ValidationError
-from langchain_community.chat_models import AzureChatOpenAI
+from langchain_openai import AzureChatOpenAI
 from langchain_core.messages import HumanMessage
 from .schemas import ActionSchema
 from . import config as rconfig  # we'll describe config below
@@ -79,7 +79,7 @@ class Reasoner:
         log("INFO", "reasoner_request", "Sending prompt to LLM", goal=goal, elements_count=len(elements))
         start = time.time()
         try:
-            resp = self.llm([HumanMessage(content=prompt)])
+            resp = self.llm.invoke([HumanMessage(content=prompt)])
             content = resp.content.strip()
             log("DEBUG", "reasoner_raw", "LLM raw output", output=content)
         except Exception as e:

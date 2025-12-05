@@ -5,7 +5,7 @@ from typing import Optional, Dict, Any, List
 from ..deps import get_session_manager
 from runner.session_manager import SessionManager
 from runner.action_executor import ActionExecutor
-from runner.perception.perception_stub import PerceptionStub
+from runner.perception.yolo_perception import YOLOPerception
 from reasoner.reasoner import Reasoner
 from reasoner.schemas import ActionSchema
 from runner.logger import log
@@ -14,7 +14,7 @@ import time
 import traceback
 
 router = APIRouter()
-_perception = PerceptionStub()
+_perception = YOLOPerception()
 _reasoner = Reasoner()
 
 # Config defaults (override with env vars)

@@ -48,24 +48,24 @@ class BrowserManager:
     # -------------------------
     async def _start_browser(self):
         try:
-            logger.log("INFO", "bm_launch", "Launching Playwright + Firefox",
+            logger.log("INFO", "bm_launch", "Launching Playwright + Chromium",
                        headless=config.HEADLESS, exec_path=config.BROWSER_EXEC_PATH)
             self._playwright = await async_playwright().start()
             launch_args = [] # Firefox doesn't need the same sandbox args usually, but we can keep empty or minimal
             if config.BROWSER_EXEC_PATH:
-                self._browser = await self._playwright.firefox.launch(
+                self._browser = await self._playwright.chromium.launch(
                     headless=config.HEADLESS,
                     executable_path=config.BROWSER_EXEC_PATH,
                     args=launch_args
                 )
             else:
-                self._browser = await self._playwright.firefox.launch(
+                self._browser = await self._playwright.chromium.launch(
                     headless=config.HEADLESS,
                     args=launch_args
                 )
             self._restart_count = 0 if self._restart_count == 0 else self._restart_count
             metrics.BROWSER_UP.set(1)
-            logger.log("INFO", "bm_launched", "Firefox launched")
+            logger.log("INFO", "bm_launched", "Chromium launched")
         except Exception as e:
             logger.log("ERROR", "bm_launch_error", "Failed to launch browser", error=str(e), tb=traceback.format_exc())
             metrics.BROWSER_UP.set(0)
