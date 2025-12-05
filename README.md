@@ -17,7 +17,7 @@
 
 ## 🚀 Overview
 
-The **Agentic Product Scraper** is an advanced web automation tool that "sees" and "thinks" like a human. Unlike traditional scrapers that rely on brittle CSS selectors, this agent uses **YOLO computer vision** to detect UI elements and **LLM reasoning** to plan interactions dynamically.
+The **Browser Automation With Computer Vision** is an advanced web automation tool that "sees" and "thinks" like a human. Unlike traditional scrapers that rely on brittle CSS selectors, this agent uses **YOLO computer vision** to detect UI elements and **LLM reasoning** to plan interactions dynamically.
 
 It is designed to handle complex, multi-step workflows on dynamic websites, making it resilient to layout changes and capable of achieving high-level goals.
 
