@@ -1,21 +1,11 @@
 # api/main.py
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
 from .deps import init_services
 from .routes import session_routes, artifact_routes
 from .routes import perception_routes
 from .routes import plan_execute, plan_execute_loop
-from .routes import screencast_routes
 
 app = FastAPI(title="Browser Runner API")
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 @app.on_event("startup")
 async def startup():
@@ -28,5 +18,4 @@ app.include_router(artifact_routes.router, prefix="/api")
 app.include_router(perception_routes.router, prefix="/api")
 app.include_router(plan_execute.router, prefix="/api")
 app.include_router(plan_execute_loop.router, prefix="/api")
-app.include_router(screencast_routes.router, prefix="/api")
 
